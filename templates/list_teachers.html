@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} {{ block.main }} Список учащихся {% endblock %}
+{% block content %}
+<table class="table table-bordered table-dark">
+    <thead>
+    <tr>
+        <td>Имя джедая</td>
+        <td>Планета</td>
+        <td>Кол-во учеников</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for t in teacher %}
+    <tr>
+        <td>{{ t.name }}</td>
+        <td>{{ t.planet }}</td>
+        <td>{{ t.kolvo }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

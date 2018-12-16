@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %} {{ block.main }} Главная страница {% endblock %}
+{% block content %}
+<a href="{% url 'add_candidate' %}">Кандидат</a><br>
+<a href="{% url 'choose_teacher' %}">Учитель</a>
+{% endblock %}

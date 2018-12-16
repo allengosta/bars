@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} {{ block.main }} Кандидаты {% endblock %}
+{% block content %}
+  {% for candidate in candidates %}
+    <p><a href="{% url 'candidate' candidate_id=candidate.id teach_id=teach_id %}">{{ candidate.name }}</a></p>
+
+  {% endfor %}
+  {% if candidates.count == 0 %}
+    <p>Нет кандидатов! </p>
+  {% endif %}
+{% endblock %}
