@@ -37,8 +37,6 @@ class Candidate(models.Model):
     teacher = models.ForeignKey(Teacher, verbose_name='Джедай планеты', related_name='teacher_cand', blank=True,
                                null=True, on_delete=models.SET_NULL)
 
-    #objects = CandidateManager()
-
     def __str__(self):
         return '%s, %s, %s' % (self.name, self.age, self.planet.name)
 
@@ -78,26 +76,4 @@ class Challenge(models.Model):
     position = models.PositiveSmallIntegerField('Порядковый номер', blank=False, null=False, default=0)
     orden = models.OneToOneField(Planet, on_delete=models.CASCADE)
     question = models.ManyToManyField(Question)
-
-
-
-
-'''class JediManager(models.Manager):
-    def get_queryset(self):
-        return super(JediManager, self).get_queryset().annotate(padawans_cnt=models.Count('candidate'))
-
-    def can_teach(self):
-        return self.get_queryset().filter(padawans_cnt__lte=3)
-
-    def more_than_one(self):
-        return self.get_queryset().filter(padawans_cnt__gt=1)'''
-
-
-
-
-
-'''class CandidateManager(models.Manager):
-    def get_queryset(self):
-        return super(CandidateManager, self).get_queryset().filter(jedi=None)'''
-
 
